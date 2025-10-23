@@ -1,0 +1,229 @@
+@import '../../styles/mixin.scss';
+.stepsInnerContainer {
+  width: 100% !important;
+  padding: 0 !important;
+}
+.publishForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  p {
+    margin: 1rem 0;
+  }
+}
+.publishFormFields {
+  width: 50%;
+  p {
+    margin: 0;
+    color: red;
+    font-size: 12px;
+  }
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin: 1rem 0;
+    border: none;
+    h6 {
+      font-size: 1rem;
+    }
+  }
+  input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #79747e;
+    border-radius: 4px;
+    font-size: 1rem;
+    &:hover {
+      border-color: #282625;
+    }
+    &:focus-visible {
+      border: 1px solid var(--primaryClr);
+      outline: none;
+    }
+  }
+  button {
+    width: 100%;
+    padding: 16px 40px;
+    background: #fe9901;
+    border-radius: 4px;
+    color: #282625;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    margin: 1rem 0;
+    border: 1px solid #fff;
+    &:hover {
+      border: 1px solid #282625;
+      color: #fff;
+    }
+  }
+  @include for-large-tablet-portrait-up {
+    width: 100%;
+  }
+}
+.whySection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+  .whyText {
+    width: 40%;
+    h2 {
+      font-size: 2rem;
+      margin: 2rem 0;
+    }
+    a {
+      background: #fe9901;
+      border-radius: 4px;
+      padding: 16px 40px 16px 40px;
+      margin: 2rem 0;
+      color: #282625;
+      &:hover {
+        color: #fff;
+      }
+    }
+    @include for-large-phone-only {
+      width: 100%;
+      text-align: center;
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @include for-large-tablet-portrait-up {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.whyCardsSec {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 2rem;
+  @include for-large-phone-only {
+    width: 100%;
+  }
+}
+.whyCard {
+  box-shadow: 20px 40px 50px rgba(40, 38, 37, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h5 {
+    font-size: 2rem;
+    color: var(--primaryClr);
+    margin: 1rem 0;
+    @include for-large-phone-only {
+      font-size: 1.5rem;
+    }
+  }
+  p {
+    font-size: 1.5rem;
+    @include for-large-phone-only {
+      font-size: 1rem;
+    }
+  }
+  .cardDetail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+
+    p {
+      font-size: 5rem;
+      font-weight: bold;
+      color: #6d6c6d;
+      text-align: center;
+      span {
+        color: var(--primaryClr);
+      }
+      @include for-large-phone-only {
+        font-size: 3rem;
+        font-family: 'Averta-bold';
+      }
+      @include for-small-phone-only {
+        font-size: 2rem;
+      }
+    }
+  }
+  @include for-big-desktop-up {
+    min-height: 400px;
+  }
+  @include for-large-phone-only {
+    height: auto;
+    padding: 1.5rem;
+  }
+}
+.imageClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  @include for-large-tablet-portrait-up {
+    width: 33.3333%;
+  }
+  @include for-large-phone-only {
+    width: 50%;
+  }
+}
+.cardImages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+//
+.benefits {
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  h2 {
+    @include for-large-phone-only {
+      text-align: center;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 2rem;
+    margin-top: 3rem;
+    row-gap: 3rem;
+    li {
+      width: 25%;
+      padding: 1.5rem;
+      box-shadow: 20px 40px 50px rgba(40, 38, 37, 0.1);
+      border-radius: 12px;
+      max-height: 350px;
+      h6 {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+      @include for-large-tablet-portrait-up {
+        width: 40%;
+      }
+      @include for-large-phone-only {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

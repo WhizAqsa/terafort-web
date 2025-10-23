@@ -1,0 +1,107 @@
+@import '../../../styles/mixin';
+
+.innerContainer {
+  width: unset !important;
+  overflow: hidden;
+}
+.carousalWrapper {
+  background-color: red;
+}
+.awards {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.Awardcontainer {
+  cursor: grab;
+  overflow: hidden;
+  margin-top: 4rem;
+  padding: 2rem 0px 4rem 0;
+  @include for-large-phone-only {
+    margin: 1rem 0;
+  }
+}
+.innerAwardContainer {
+  display: flex;
+  justify-content: center;
+  @include for-large-phone-only {
+    justify-content: flex-start;
+  }
+}
+.awardItem {
+  // min-width: 280px;
+  width: 280px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 99999;
+  box-shadow: 0px 25px 70px rgba(0, 0, 0, 0.07);
+  border-radius: 0 24px 24px 24px;
+  background-color: #fff;
+  // background: #fe9901;
+  // transform: matrix(-1, 0, 0, 1, 0, 0);
+  h6 {
+    font-size: 1rem;
+    font-family: Averta-bold;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  @include for-tablet-landscape-up {
+    min-width: 280px;
+  }
+  @include for-large-phone-only {
+    min-width: 280px;
+  }
+}
+.awardItem::before {
+  /* we need this to create the pseudo-element */
+  content: '';
+  display: block;
+
+  /* position the triangle in the top right corner */
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+
+  /* create the triangle */
+  width: 0;
+  height: 0;
+  border: 1em solid transparent;
+  border-top-color: #fe9901;
+  border-left-color: #fe9901;
+}
+
+.evenItem {
+  margin-top: 8rem;
+}
+.controller {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  column-gap: 1rem;
+  button {
+    color: #fe9901;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,295 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixin';
+@import '../../../../styles/breakingPoints';
+
+.quoteSection {
+    padding: 4rem 0;
+    background: #f8fafc;
+    background: var(--light-background, #f8fafc);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    @include for-large-tablet-portrait-up {
+        padding: 2rem 0;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.quoteCard {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @include for-large-tablet-portrait-up {
+        padding: 2rem 1rem;
+        border-radius: 15px;
+    }
+}
+
+.cardHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @include for-large-tablet-portrait-up {
+        margin-bottom: 2rem;
+    }
+}
+
+.cardTitle {
+    font-family: 'AvertaDemo-ExtraBold', 'Arial Black', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(131.81deg, #fe9901 0%, #ff6000 100.11%);
+    background: var(--primary-gradient, linear-gradient(131.81deg, #fe9901 0%, #ff6000 100.11%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #fe9901;
+    /* Fallback color */
+
+    @include for-large-tablet-portrait-up {
+        font-size: 2rem;
+    }
+}
+
+.cardDescription {
+    font-size: 1.1rem;
+    color: #6b7280;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+
+    @include for-large-tablet-portrait-up {
+        font-size: 1rem;
+    }
+}
+
+.cardContent {
+    background: #fafafa;
+    border-radius: 15px;
+    padding: 2.5rem;
+
+    @include for-large-tablet-portrait-up {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+}
+
+.quoteForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    @include for-large-tablet-portrait-up {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.formRowThree {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+
+    @include for-tablet-landscape-up {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    @include for-large-tablet-portrait-up {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    /* Ensures flex items can shrink below their content size */
+}
+
+.formLabel {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: inherit;
+    width: 100%;
+    min-width: 0;
+    /* Allows the input to shrink */
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        border-color: #fe9901;
+        border-color: var(--primary-color, #fe9901);
+        box-shadow: 0 0 0 3px rgba(254, 153, 1, 0.1);
+    }
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+}
+
+.formSelect {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    appearance: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.formCheckbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    cursor: pointer;
+    appearance: none;
+    background: white;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+
+    &:checked {
+        background: #fe9901;
+        background: var(--primary-color, #fe9901);
+        border-color: #fe9901;
+        border-color: var(--primary-color, #fe9901);
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 9.586l6.646-6.64a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(254, 153, 1, 0.1);
+    }
+}
+
+.checkboxLabel {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.5;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.submitButton {
+    background: linear-gradient(131.81deg, #fe9901 0%, #ff6000 100.11%);
+    background: var(--primary-gradient, linear-gradient(131.81deg, #fe9901 0%, #ff6000 100.11%));
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(254, 153, 1, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(254, 153, 1, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    @include for-large-tablet-portrait-up {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+// Form validation styles
+.formInput:invalid:hover,
+.formSelect:invalid:hover,
+.formTextarea:invalid:hover {
+    border-color: #ef4444;
+}
+
+.formInput:invalid:focus,
+.formSelect:invalid:focus,
+.formTextarea:invalid:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+// Loading state for submit button
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+
+    &:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(254, 153, 1, 0.3);
+    }
+}
+
+// Animation for form appearance
+.quoteCard {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

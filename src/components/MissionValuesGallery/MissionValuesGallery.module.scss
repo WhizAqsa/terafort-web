@@ -1,0 +1,611 @@
+@import '../../styles/mixin';
+
+.missionValuesSection {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg1) 30%, var(--bg) 70%, var(--bg1) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fe9901' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+
+    @include for-large-tablet-portrait-up {
+        padding: 4rem 0;
+    }
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+
+    @include for-large-tablet-portrait-up {
+        margin-bottom: 2rem;
+    }
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(131.81deg, #fe9901 0%, #ff6000 100.11%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 1rem 0;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primaryClr) 0%, #e5890a 100%);
+        border-radius: 2px;
+        box-shadow: 0 2px 10px rgba(254, 153, 1, 0.3);
+    }
+
+    @include for-large-tablet-portrait-up {
+        font-size: 2.8rem;
+    }
+
+    @include for-large-phone-only {
+        font-size: 2.2rem;
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+
+    @include for-large-phone-only {
+        font-size: 1.1rem;
+    }
+}
+
+.rollingGallery {
+    position: relative;
+    z-index: 1;
+    margin: 2rem 0;
+    perspective: 1000px;
+    width: 100%;
+
+    @include for-large-tablet-portrait-up {
+        margin: 1.5rem 0;
+    }
+}
+
+.galleryContainer {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1200px;
+    width: 100%;
+
+    @include for-large-tablet-portrait-up {
+        height: 450px;
+    }
+
+    @include for-large-phone-only {
+        height: 400px;
+    }
+}
+
+.cardsTrack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+.galleryCard {
+    position: absolute;
+    width: 320px;
+    height: 420px;
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    cursor: grab;
+    user-select: none;
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    will-change: transform;
+
+    &:hover {
+        box-shadow:
+            0 32px 64px -12px rgba(0, 0, 0, 0.35),
+            0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    &.activeCard {
+        z-index: 10;
+
+        &:hover:not(:active) {
+            // Only apply hover scale when not being dragged
+            box-shadow:
+                0 35px 70px -12px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    @include for-large-tablet-portrait-up {
+        width: 280px;
+        height: 380px;
+        padding: 1.75rem;
+    }
+
+    @include for-large-phone-only {
+        width: 260px;
+        height: 340px;
+        padding: 1.5rem;
+    }
+}
+
+.cardContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cardIcon {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+
+    svg {
+        color: #f83600;
+        width: 48px;
+        height: 48px;
+        stroke-width: 1.5;
+    }
+
+    @include for-large-tablet-portrait-up {
+        margin-bottom: 0.8rem;
+
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    @include for-large-phone-only {
+        margin-bottom: 0.6rem;
+
+        svg {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
+
+.cardTitle {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+    @include for-large-tablet-portrait-up {
+        font-size: 1.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    @include for-large-phone-only {
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
+    }
+}
+
+.cardDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.95;
+    font-weight: 400;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    @include for-large-tablet-portrait-up {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    @include for-large-phone-only {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+.galleryGradientLeft,
+.galleryGradientRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    z-index: 15;
+    pointer-events: none;
+
+    @include for-large-tablet-portrait-up {
+        width: 150px;
+    }
+
+    @include for-large-phone-only {
+        width: 100px;
+    }
+}
+
+.galleryGradientLeft {
+    left: 0;
+    background: linear-gradient(to right,
+            var(--bg) 0%,
+            rgba(248, 249, 250, 0.8) 30%,
+            rgba(248, 249, 250, 0.3) 70%,
+            transparent 100%);
+}
+
+.galleryGradientRight {
+    right: 0;
+    background: linear-gradient(to left,
+            var(--bg) 0%,
+            rgba(248, 249, 250, 0.8) 30%,
+            rgba(248, 249, 250, 0.3) 70%,
+            transparent 100%);
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primaryClr);
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+        background: rgba(254, 153, 1, 0.9);
+        color: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 6px 25px rgba(254, 153, 1, 0.3);
+    }
+
+    &:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    @include for-large-phone-only {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+.prevButton {
+    left: 20px;
+
+    @include for-large-phone-only {
+        left: 10px;
+    }
+}
+
+.nextButton {
+    right: 20px;
+
+    @include for-large-phone-only {
+        right: 10px;
+    }
+}
+
+.galleryDots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 2rem;
+    z-index: 15;
+    position: relative;
+
+    @include for-large-phone-only {
+        gap: 10px;
+        margin-top: 1.5rem;
+    }
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(102, 102, 102, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &:hover {
+        background: rgba(254, 153, 1, 0.7);
+        transform: scale(1.2);
+    }
+
+    &.active {
+        background: var(--primaryClr);
+        transform: scale(1.3);
+        box-shadow: 0 0 15px rgba(254, 153, 1, 0.5);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primaryClr);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+    }
+
+    @include for-large-phone-only {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.instructions {
+    text-align: center;
+    margin-top: 2rem;
+    position: relative;
+
+
+    p {
+        font-size: 0.9rem;
+        color: #888;
+        margin: 0;
+        font-weight: 500;
+        opacity: 0.8;
+
+        @include for-large-phone-only {
+            font-size: 0.85rem;
+        }
+    }
+}
+
+// New layout styles for text on left, cards on right
+.contentLayout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    @include for-large-tablet-portrait-up {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+}
+
+.textSection {
+    flex: 1;
+    max-width: 500px;
+
+    .title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(131.81deg, #fe9901 0%, #ff6000 100.11%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 0 1.5rem 0;
+        line-height: 1.2;
+
+        @include for-large-tablet-portrait-up {
+            font-size: 2.5rem;
+        }
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+
+        @include for-large-tablet-portrait-up {
+            font-size: 1.1rem;
+        }
+    }
+
+    .description {
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+        }
+    }
+}
+
+.cardsSection {
+    flex: 1;
+    max-width: 600px;
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    // Center the third card (Values) in the second row
+    .glowingCard:nth-child(3) {
+        grid-column: 1 / 3;
+        justify-self: center;
+        max-width: 300px;
+    }
+
+    @include for-large-tablet-portrait-up {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        max-width: 400px;
+        margin: 0 auto;
+
+        .glowingCard:nth-child(3) {
+            grid-column: 1;
+            max-width: none;
+        }
+    }
+}
+
+.glowingCard {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    // Always visible glowing border effect
+    box-shadow:
+        0 10px 30px rgba(242, 153, 74, 0.3),
+        0 0 0 2px #f2994a,
+        0 0 15px rgba(242, 153, 74, 0.5),
+        0 0 30px rgba(242, 153, 74, 0.3);
+
+    // Working glowing border effect using box-shadow
+    &::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border-radius: 18px;
+        background: linear-gradient(45deg, #ffd699, #cd7408, #ffcc66, #fff099);
+        background-size: 400% 400%;
+        z-index: -1;
+        opacity: 1;
+        animation: borderGlow 3s ease infinite;
+    }
+
+    // Alternative approach using border and box-shadow
+    border: 2px solid transparent;
+    background-clip: padding-box;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow:
+            0 20px 40px rgba(242, 153, 74, 0.5),
+            0 0 0 3px #f2994a,
+            0 0 25px rgba(242, 153, 74, 0.7),
+            0 0 50px rgba(242, 153, 74, 0.5);
+
+        &::before {
+            opacity: 1;
+            animation: borderGlow 1.5s ease infinite;
+        }
+    }
+
+    .cardContent {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardIcon {
+        color: #f2994a;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: rgba(242, 153, 74, 0.1);
+        border-radius: 12px;
+    }
+
+    .cardTitle {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #333;
+        margin: 0 0 1rem 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .cardDescription {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+        flex: 1;
+    }
+}
+
+// Keyframe animation for the glowing border
+@keyframes borderGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

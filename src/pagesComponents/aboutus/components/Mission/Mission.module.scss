@@ -1,0 +1,122 @@
+@import '../../../../styles/mixin.scss';
+.innerContainer {
+  padding: 4rem 0;
+  background-color: #fff;
+}
+.missionSec {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.missionContainer {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .missionIllust {
+    min-width: 30%;
+    padding: 1rem;
+    // overflow: hidden;
+    .missionImage {
+      width: 100%;
+      height: auto;
+      @include for-large-tablet-portrait-up {
+        width: 300px;
+      }
+    }
+    @include for-large-tablet-portrait-up {
+      width: 100%;
+      text-align: center;
+    }
+    @include for-large-phone-only {
+      width: 100%;
+      text-align: center;
+      overflow: unset;
+      padding: unset;
+    }
+  }
+  .missionText {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    .listItem {
+      font-size: 1.5rem;
+      font-weight: 600;
+      padding: 0 3rem 3rem 3rem;
+      position: relative;
+      border-left: 4px solid #fe9901;
+      &:before {
+        content: attr(dataContent);
+        color: #fff;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        left: -17px;
+        top: 0;
+        z-index: 1;
+        background: linear-gradient(90deg, #6d6c6d 0%, #252425 100%);
+      }
+      &:last-child {
+        padding: 0 3rem 0rem 3rem;
+        @include for-large-phone-only {
+          padding: 0 0rem 2rem 2rem;
+        }
+      }
+      // &::after {
+      //   content: '';
+      //   position: absolute;
+      //   width: 3px;
+      //   height: 150px;
+      //   left: 0;
+      //   top: 0;
+      //   background-color: var(--primaryClr);
+      // }
+      @include for-large-phone-only {
+        font-size: 1.1rem;
+        padding: 0 0rem 2rem 2rem;
+        border-left: 4px solid var(--primaryClr);
+        &::after {
+          content: '';
+          height: 0;
+          width: 0;
+        }
+        &::before {
+          left: -17px;
+        }
+      }
+    }
+    h3 {
+      font-size: 1.5rem;
+      color: var(--primaryClr);
+      margin-bottom: 1rem;
+      @include for-large-phone-only {
+        font-size: 1.2rem;
+      }
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      font-weight: 400;
+      @include for-large-phone-only {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+    @include for-large-tablet-portrait-up {
+      width: 100%;
+    }
+  }
+  @include for-large-tablet-portrait-up {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+}

@@ -1,0 +1,223 @@
+@import '../../../../styles/mixin';
+
+.industriesSection {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg1) 50%, var(--bg) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fe9901' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+
+    @include for-tablet-landscape-up {
+        padding: 0 1.5rem;
+    }
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    @include for-large-tablet-portrait-up {
+        margin-bottom: 3rem;
+    }
+}
+
+.sectionTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--secondaryClr);
+    margin-bottom: 1rem;
+
+    @include for-large-tablet-portrait-up {
+        font-size: 2.5rem;
+    }
+
+    @include for-large-phone-only {
+        font-size: 2rem;
+    }
+}
+
+.sectionDescription {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+
+    @include for-large-phone-only {
+        font-size: 1.1rem;
+    }
+}
+
+.industriesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+
+    @include for-tablet-landscape-up {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-large-phone-only {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.industryCard {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(254, 153, 1, 0.1);
+    border-color: #e5890a;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primaryClr) 0%, #e5890a 100%);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        border-color: var(--primaryClr);
+        box-shadow:
+            0 0 20px rgba(254, 153, 1, 0.4),
+            0 0 40px rgba(254, 153, 1, 0.2),
+            0 0 60px rgba(254, 153, 1, 0.1);
+        transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+
+        &::before {
+            transform: scaleX(1);
+        }
+
+        .industryIcon {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, var(--primaryClr) 0%, #e5890a 100%);
+
+            i {
+                color: white;
+            }
+        }
+    }
+}
+
+.industryIcon {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, rgba(254, 153, 1, 0.1) 0%, rgba(254, 153, 1, 0.2) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    transition: all 0.3s ease;
+
+    i {
+        font-size: 1.5rem;
+        color: var(--primaryClr);
+        transition: color 0.3s ease;
+    }
+}
+
+.industryTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--secondaryClr);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.industryDescription {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.industryProjects {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primaryClr);
+    margin: 0;
+}
+
+/* === Continuous Scrolling Animation === */
+.marqueeWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marqueeContent {
+    display: flex;
+    animation: scroll-left 25s linear infinite;
+    gap: 2rem;
+}
+
+.leftToRight .marqueeContent {
+    animation: scroll-right 25s linear infinite;
+}
+
+.rightToLeft .marqueeContent {
+    animation: scroll-left 25s linear infinite;
+}
+
+/* Keyframes for both directions */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Ensure cards are fixed width for smooth motion */
+.industryCard {
+    min-width: 320px;
+    flex: 0 0 auto;
+}

@@ -1,0 +1,101 @@
+@import '../../../../styles/mixin';
+
+.companyStorySection {
+    padding: 6rem 0;
+    background: white;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    @include for-tablet-landscape-up {
+        padding: 0 1.5rem;
+    }
+}
+
+.storyGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+
+    @include for-tablet-landscape-up {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.storyContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.storyTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--secondaryClr);
+    margin: 0;
+    position: relative;
+
+    @include for-large-tablet-portrait-up {
+        font-size: 2.5rem;
+    }
+
+    @include for-large-phone-only {
+        font-size: 2rem;
+    }
+}
+
+.storyText {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    p {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.7;
+        margin: 0;
+        text-align: justify;
+
+        @include for-large-phone-only {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    }
+}
+
+.storyImageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.storyImage {
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: auto;
+    transition: all 0.4s ease;
+
+    &:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.imageDecoration {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    width: 128px;
+    height: 128px;
+    background: radial-gradient(circle, rgba(254, 153, 1, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(30px);
+    pointer-events: none;
+}

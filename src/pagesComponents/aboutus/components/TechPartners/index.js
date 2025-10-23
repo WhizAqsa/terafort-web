@@ -1,0 +1,1 @@
+export { TechPartners } from './TechPartners'

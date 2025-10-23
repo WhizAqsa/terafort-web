@@ -1,0 +1,461 @@
+@import '../../styles/mixin';
+
+.joinSec {
+  display: flex;
+  flex-direction: column;
+  margin: 5rem 0;
+
+  h2 {
+    font-size: 3rem;
+    margin: 1rem 0;
+
+    @include for-large-tablet-portrait-up {
+      text-align: center;
+    }
+
+    @include for-large-phone-only {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+
+  @include for-large-tablet-portrait-up {
+    margin: 2rem 0;
+  }
+
+  @include for-large-phone-only {
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+}
+
+.innerContainer {
+  display: flex;
+  width: 100%;
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  .whyJoinText {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 20px 40px 50px rgba(40, 38, 37, 0.1);
+    border-radius: 16px;
+    padding: 3rem;
+
+    h3 {
+      font-size: 2rem;
+      color: var(--primaryClr);
+      margin: 1rem 0;
+
+      @include for-large-tablet-portrait-up {
+        font-size: 1.5rem;
+        margin: 1rem 0 0 0;
+      }
+
+      @include for-large-phone-only {
+        margin: 1rem 0;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 28px;
+      margin: 1rem 0;
+
+      @include for-large-tablet-portrait-up {
+        font-size: 1rem;
+        line-height: 20px;
+      }
+    }
+
+    @include for-large-tablet-portrait-up {
+      width: 50%;
+    }
+
+    @include for-large-phone-only {
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+    }
+  }
+
+  .whyjoinImage {
+    width: 30%;
+
+    .image {
+      width: 100%;
+      height: auto;
+      box-shadow: 20px 40px 50px rgba(40, 38, 37, 0.1);
+      border-radius: 16px;
+    }
+
+    @include for-large-tablet-portrait-up {
+      width: 50%;
+    }
+
+    @include for-large-phone-only {
+      width: 100%;
+    }
+  }
+
+  @include for-large-phone-only {
+    flex-direction: column;
+  }
+}
+
+// benefits
+.outBenefitsClass {
+  background-color: rgba(255, 238, 224, 0.2);
+}
+
+.benefitsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+
+  h2 {
+    font-family: 'Averta-bold', 'Arial Black', sans-serif;
+    font-size: 3rem;
+    margin: 0 0 5rem 0;
+    color: #333;
+    font-weight: 700;
+
+    @include for-large-tablet-portrait-up {
+      text-align: center;
+    }
+
+    @include for-large-phone-only {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+}
+
+.benefitsCards {
+  width: 100%;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+
+  @include for-large-tablet-portrait-up {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @include for-large-phone-only {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .benefitCard {
+    background-color: #fff;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 20px 40px 50px rgba(40, 38, 37, 0.1);
+    border-radius: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 20px 50px 60px rgba(40, 38, 37, 0.15);
+    }
+
+    span {
+      justify-content: center;
+      display: flex;
+      margin-bottom: 1rem;
+
+      .cardImage {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+
+        @include for-large-phone-only {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+
+    h3 {
+      font-family: 'Averta-bold', 'Arial', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      white-space: pre-wrap;
+      margin: 1rem 0;
+      text-align: center;
+      color: #333;
+
+      @include for-large-phone-only {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+// position
+.positionContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+
+  h2 {
+    font-size: 3rem;
+    margin: 0 0 3rem 0;
+
+    @include for-large-tablet-portrait-up {
+      text-align: center;
+    }
+
+    @include for-large-phone-only {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+
+  ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    li {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 1.5rem 1rem;
+      border: 1px solid #eee;
+      align-items: center;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all ease 0.2s;
+
+      &:hover {
+        box-shadow: 0px 0px 10px rgba(40, 38, 37, 0.1);
+      }
+
+      p {
+        justify-self: center;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-self: end;
+      }
+
+      button {
+        display: flex;
+        font-size: 1rem;
+        font-weight: 600;
+        justify-content: center;
+        align-items: center;
+        color: var(--primaryClr);
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        color: var(--primaryClr);
+      }
+
+      @include for-large-phone-only {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+      }
+    }
+  }
+}
+
+// process
+.appText {
+  width: 100%;
+  margin: 6rem 0;
+
+  .recruitClass {
+    position: relative;
+    padding-left: 2rem;
+
+    h2 {
+      font-size: 3rem;
+      margin: 1rem 0;
+
+      @include for-large-tablet-portrait-up {
+        text-align: center;
+      }
+
+      @include for-large-phone-only {
+        text-align: center;
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      color: var(--primaryClr);
+      font-size: 1.5rem;
+      line-height: 28px;
+      margin: 1rem 0;
+      position: relative;
+
+      @include for-large-tablet-portrait-up {
+        font-size: 1.2rem;
+        line-height: 20px;
+        text-align: center;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        left: -52px;
+        top: 76px;
+        background-color: var(--primaryClr);
+      }
+    }
+
+    &::before {
+      content: '';
+      color: #fff;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      left: -28px;
+      top: 20px;
+      z-index: 1;
+      background: linear-gradient(90deg, #6d6c6d 0%, #252425 100%);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 132px;
+      left: -20px;
+      top: 20px;
+      background-color: var(--primaryClr);
+    }
+  }
+
+  ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+    padding: 0 0 0 0.5rem;
+
+    :nth-child(2) {
+      border-right: 2px solid var(--primaryClr);
+      border-bottom: 2px solid var(--primaryClr);
+      border-radius: 15px;
+    }
+
+    :nth-child(4) {
+      border-top: unset !important;
+    }
+
+    :nth-child(3) {
+      @include for-large-phone-only {
+        order: 4;
+      }
+    }
+
+    .listItem {
+      width: 50%;
+      font-size: 1.5rem;
+      font-weight: 600;
+      padding: 0 3rem 3rem 3rem;
+      position: relative;
+      border-top: 2px solid var(--primaryClr);
+      border-radius: 15px;
+      padding: 2rem 2rem;
+
+      &:before {
+        content: attr(dataContent);
+        color: #fff;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        left: -14px;
+        top: -15px;
+        z-index: 1;
+        background: linear-gradient(90deg, #6d6c6d 0%, #252425 100%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+
+        left: 0;
+        background-color: var(--primaryClr);
+      }
+
+      div {
+        box-shadow: 20px 40px 50px rgba(40, 38, 37, 0.1);
+        border-radius: 24px;
+        padding: 2rem;
+
+        p {
+          color: #252425;
+          font-size: 1rem;
+          font-weight: 400;
+          border: none;
+          line-height: 1.5;
+          margin-top: 1rem;
+          letter-spacing: 1px;
+        }
+
+        @include for-large-phone-only {
+          h3 {
+            margin: 1rem 0;
+          }
+        }
+      }
+
+      @include for-large-phone-only {
+        width: 100%;
+        border: none;
+        padding: unset;
+
+        &::before {
+          content: '';
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+
+    @include for-large-phone-only {
+      padding: unset;
+    }
+  }
+
+  @include for-large-phone-only {
+    margin: 2rem 0;
+  }
+}

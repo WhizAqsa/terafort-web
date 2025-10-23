@@ -1,0 +1,136 @@
+@import '../../../styles/mixin';
+.outerContainer {
+  overflow: unset;
+}
+.expertiesContainer {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+.whySection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+  row-gap: 3rem;
+  position: relative;
+
+  .whyText {
+    width: 40%;
+    position: relative;
+    padding-bottom: 200px;
+    .headings {
+      position: sticky;
+      top: 100px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin: 2rem 0;
+    }
+    a {
+      background: #fe9901;
+      border-radius: 4px;
+      padding: 16px 40px 16px 40px;
+      margin: 2rem 0;
+      color: #282625;
+      &:hover {
+        color: #fff;
+      }
+    }
+    @include for-large-phone-only {
+      width: 100%;
+      text-align: center;
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @include for-large-tablet-portrait-up {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.whyCardsSec {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 2rem;
+  @include for-large-phone-only {
+    overflow-x: clip;
+    width: 100%;
+  }
+}
+.whyCard {
+  box-shadow: 20px 40px 50px rgba(40, 38, 37, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h5 {
+    font-size: 2rem;
+    color: var(--primaryClr);
+    margin: 1rem 0;
+    @include for-large-phone-only {
+      font-size: 1.5rem;
+    }
+  }
+  p {
+    font-size: 1.5rem;
+    @include for-large-phone-only {
+      font-size: 1rem;
+    }
+  }
+  .cardDetail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+
+    p {
+      font-size: 5rem;
+      font-weight: bold;
+      color: #6d6c6d;
+      text-align: center;
+      span {
+        color: var(--primaryClr);
+      }
+      @include for-large-phone-only {
+        font-size: 3rem;
+        font-family: 'Averta-bold';
+      }
+      @include for-small-phone-only {
+        font-size: 2rem;
+      }
+    }
+  }
+  @include for-big-desktop-up {
+    min-height: 400px;
+  }
+  @include for-large-phone-only {
+    height: auto;
+    padding: 1.5rem;
+  }
+}
+.imageClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  @include for-large-tablet-portrait-up {
+    width: 33.3333%;
+  }
+  @include for-large-phone-only {
+    width: 50%;
+  }
+}
+.cardImages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
