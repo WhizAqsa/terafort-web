@@ -14,7 +14,7 @@ export function Toast({ show, message }) {
 
   useEffect(() => {
     showToast()
-  }, [show])
+  }, [show, showToast])
   return (
     <AnimatePresence>
       {display && (

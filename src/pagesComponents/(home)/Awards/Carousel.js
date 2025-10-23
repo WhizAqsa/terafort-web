@@ -14,7 +14,7 @@ export default function MyCarousel() {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
     console.log(carousel.current.scrollWidth, carousel.current.offsetWidth)
     console.log(width)
-  }, [carousel?.current?.offsetWidth])
+  }, [carousel?.current?.offsetWidth, width])
   return (
     <motion.div
       className={styles.Awardcontainer}

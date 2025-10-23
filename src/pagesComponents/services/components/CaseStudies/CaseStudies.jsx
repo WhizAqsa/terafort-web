@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import styles from "./CaseStudies.module.scss";
 
 const caseStudies = [
@@ -73,7 +74,7 @@ export default function CaseStudies() {
         <div className={styles.wrapper}>
             <h2 className={styles.sectionTitle}>Success Stories</h2>
             <p className={styles.sectionDescription}>
-                Real projects, real results — see how we've helped businesses transform digitally.
+                Real projects, real results  see how we&apos;ve helped businesses transform digitally.
             </p>
 
             <div className={styles.cardContainer}>
@@ -88,7 +89,7 @@ export default function CaseStudies() {
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                     >
                         <div className={styles.imageSection}>
-                            <img src={current.image} alt={current.title} className={styles.image} />
+                            <Image src={current.image} alt={current.title} className={styles.image} />
                         </div>
 
                         <div className={styles.infoSection}>
