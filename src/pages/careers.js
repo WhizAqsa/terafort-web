@@ -1,4 +1,3 @@
-
 import HeroLayout from "../components/HeroLayout/HeroLayout.jsx";
 import Head from "next/head.js";
 import { careersHero } from "../pagesComponents/careers/helper.js";

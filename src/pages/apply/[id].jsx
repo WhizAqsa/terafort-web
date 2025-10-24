@@ -39,31 +39,44 @@ export default function ApplicationPage({ postPage }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    "https://2qre6ou61c.execute-api.us-east-1.amazonaws.com/dev/user/position"
-  );
-  const position = await res.json();
-
-  if (position.response.Items) {
-    const paths = position.response.Items.map((post) => ({
-      params: { id: post.Id },
-    }));
-    return { paths, fallback: true };
-  } else {
+  try {
+    const res = await fetch(
+      "https://2qre6ou61c.execute-api.us-east-1.amazonaws.com/dev/user/position"
+    );
+    const position = await res.json();
+    if (position.response && position.response.Items) {
+      const paths = position.response.Items.map((post) => ({
+        params: { id: post.Id },
+      }));
+      return { paths, fallback: true };
+    } else {
+      return { paths: [], fallback: true };
+    }
+  } catch (error) {
+    console.error("Error fetching static paths:", error);
     return { paths: [], fallback: true };
   }
 }
 
 export async function getStaticProps({ params: { id } }) {
-  let response = await fetch(
-    `https://2qre6ou61c.execute-api.us-east-1.amazonaws.com/dev/user/position/${id}`
-  );
-  const data = await response.json();
-  console.log(data.response);
-  return {
-    props: {
-      postPage: data.response,
-    },
-    revalidate: 1,
-  };
+  try {
+    let response = await fetch(
+      `https://2qre6ou61c.execute-api.us-east-1.amazonaws.com/dev/user/position/${id}`
+    );
+    const data = await response.json();
+    return {
+      props: {
+        postPage: data.response,
+      },
+      revalidate: 1,
+    };
+  } catch (error) {
+    console.error("Error fetching static props:", error);
+    return {
+      props: {
+        postPage: null,
+      },
+      revalidate: 1,
+    };
+  }
 }
