@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/next"
+        }
+    ],
+    "env": {
+        "API_URL": "https://2qre6ou61c.execute-api.us-east-1.amazonaws.com"
+    },
+    "build": {
+        "env": {
+            "NEXT_DISABLE_FETCH": "true"
+        }
+    },
+    "ignoreCommand": "exit 0"
+}
