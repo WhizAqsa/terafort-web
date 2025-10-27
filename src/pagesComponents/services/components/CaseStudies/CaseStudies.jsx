@@ -74,9 +74,8 @@ export default function CaseStudies() {
         <div className={styles.wrapper}>
             <h2 className={styles.sectionTitle}>Success Stories</h2>
             <p className={styles.sectionDescription}>
-                Real projects, real results  see how we&apos;ve helped businesses transform digitally.
+                Real projects, real results – see how we&apos;ve helped businesses transform digitally.
             </p>
-
             <div className={styles.cardContainer}>
                 <AnimatePresence mode="wait">
                     <motion.div
@@ -89,9 +88,14 @@ export default function CaseStudies() {
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                     >
                         <div className={styles.imageSection}>
-                            <Image src={current.image} alt={current.title} className={styles.image} />
+                            <Image
+                                src={current.image}
+                                alt={current.title}
+                                className={styles.image}
+                                width={600}
+                                height={400}
+                            />
                         </div>
-
                         <div className={styles.infoSection}>
                             <p className={styles.industry}>{current.industry}</p>
                             <h3 className={styles.title}>{current.title}</h3>
@@ -102,7 +106,6 @@ export default function CaseStudies() {
                                 <strong>Timeline:</strong> {current.timeline}
                             </p>
                             <p className={styles.description}>{current.description}</p>
-
                             <div className={styles.results}>
                                 {current.results.map((r, i) => (
                                     <div key={i} className={styles.resultItem}>
@@ -111,7 +114,6 @@ export default function CaseStudies() {
                                     </div>
                                 ))}
                             </div>
-
                             <div className={styles.techStack}>
                                 {current.technologies.map((tech, i) => (
                                     <span key={i} className={styles.techTag}>
@@ -119,7 +121,6 @@ export default function CaseStudies() {
                                     </span>
                                 ))}
                             </div>
-
                             <div className={styles.buttons}>
                                 <button className={styles.navButton} onClick={prevCard}>
                                     <i className="fa-solid fa-arrow-left"></i> Prev

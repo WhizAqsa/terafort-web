@@ -30,20 +30,14 @@ export default function Careers({ positions = [] }) {
 export async function getStaticProps() {
   try {
     console.log("Fetching positions from API...");
-
-    // Note: Update this URL to the correct API endpoint
-    const API_URL = "https://2qre6ou61c.execute-api.us-east-1.amazonaws.com/dev/user/position";
-
+    const API_URL = process.env.API_URL || "https://2qre6ou61c.execute-api.us-east-1.amazonaws.com/dev/user/position";
     const response = await axios.get(API_URL, {
-      timeout: 10000, // 10 second timeout
+      timeout: 10000,
       headers: {
         'Content-Type': 'application/json',
       }
     });
-
     console.log("API Response:", response.data);
-
-    // Handle different possible response structures
     let positions = [];
     if (response.data?.response?.Items) {
       positions = response.data.response.Items;
@@ -54,25 +48,26 @@ export async function getStaticProps() {
     } else if (response.data?.data) {
       positions = response.data.data;
     }
-
     console.log("Extracted positions:", positions);
-
     return {
       props: {
         positions: positions || [],
       },
-      revalidate: 300, // Revalidate every 5 minutes
+      revalidate: 300,
     };
   } catch (error) {
     console.error("Failed to fetch positions:", error.message);
     console.error("Error details:", error.code || error.response?.status);
-
-    // Return empty positions array if API fails - no mock data
+    // Use mock data if API fails
+    const mockPositions = [
+      { id: 1, title: "Software Engineer", description: "Build cool stuff." },
+      { id: 2, title: "Designer", description: "Make things beautiful." },
+    ];
     return {
       props: {
-        positions: [],
+        positions: mockPositions,
       },
-      revalidate: 60, // Retry more frequently when failing
+      revalidate: 60,
     };
   }
 }
