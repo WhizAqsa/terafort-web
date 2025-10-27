@@ -178,3 +178,114 @@
         }
     }
 }
+
+@media (max-width: 900px) {
+    .cardContainer {
+        min-height: 600px;
+        max-width: 100vw;
+        padding: 0;
+    }
+
+    .card {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.2rem;
+        position: static;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .imageSection {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        .image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+    }
+
+    .infoSection {
+        text-align: center;
+        gap: 0.6rem;
+
+        .industry,
+        .title,
+        .client,
+        .timeline,
+        .description {
+            text-align: center;
+        }
+
+        .results {
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .techStack {
+            justify-content: center;
+        }
+
+        .buttons {
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-top: 1rem;
+
+            .navButton {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 2rem 0.5rem;
+        border-radius: 12px;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .sectionDescription {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .cardContainer {
+        min-height: 400px;
+        max-width: 100vw;
+    }
+
+    .card {
+        padding: 0.7rem;
+        border-radius: 12px;
+        gap: 1rem;
+    }
+
+    .imageSection {
+        .image {
+            border-radius: 8px;
+        }
+    }
+
+    .infoSection {
+        .title {
+            font-size: 1.2rem;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            margin: 0.7rem 0;
+        }
+
+        .techTag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+        }
+    }
+}

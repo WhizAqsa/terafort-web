@@ -1,28 +1,10 @@
 @import '../../../styles/mixin';
 
-.outerContainerTech {
-  border-bottom: 1px solid #ebe0d9;
-  position: relative;
-}
 
 .containerClass {
   padding: 1rem 1rem;
   justify-content: center;
   align-items: center;
-}
-
-.technologies {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5rem 0;
-
-  h2 {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
 }
 
 .tabs {
@@ -110,5 +92,54 @@
       row-gap: 1rem;
       text-align: center;
     }
+  }
+}
+
+.particlesBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outerContainerTech {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.technologies {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.mobileIconsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 icons per row, adjust as needed
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .mobileIconsGrid {
+    grid-template-columns: repeat(2, 1fr); // 2 icons per row for very small screens
+    gap: 1rem;
   }
 }

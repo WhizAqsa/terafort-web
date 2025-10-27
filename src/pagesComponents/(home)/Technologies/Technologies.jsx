@@ -9,15 +9,29 @@ import { monetization } from './helper'
 import { acuisition } from './helper'
 import { motion } from 'framer-motion'
 import { Particles } from '../../../components/ui/particles'
+import { useEffect, useState } from 'react'
+
 export const Technologies = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 900);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Combine all icons for mobile view
+  const allIcons = [
+    ...publishing,
+    ...development,
+    ...monetization,
+    ...acuisition,
+  ];
+
   return (
     <>
-      <Container
-        containerCls={styles.containerClass}
-        fwcCls={styles.outerContainerTech}
-        id='technologiesweworkwith'
-      >
-        {/* Particles Background */}
+      <div className={styles.particlesBg}>
         <Particles
           color="#f2994a"
           particleCount={80}
@@ -25,35 +39,43 @@ export const Technologies = () => {
           animate={true}
           className="z-0 opacity-20"
         />
-
+      </div>
+      <Container
+        containerCls={styles.containerClass}
+        fwcCls={styles.outerContainerTech}
+        id='technologiesweworkwith'
+      >
         <div className={styles.technologies}>
-          <motion.h2
-            className={styles.heading}
-            initial={{ opacity: 0 }}
-            viewport={{ amount: 1, once: true }}
-            whileInView={{
-              opacity: 1,
-              transition: {
-                duration: 0.5,
-              },
-            }}
-          >
+          <h2 className={styles.heading}>
             Technology Partners
-          </motion.h2>
-          <Tabs>
-            <div label='Publishing Platform'>
-              <Icons iconsList={publishing} />
+          </h2>
+          {isMobile ? (
+            <div className={styles.mobileIconsGrid}>
+              {allIcons.slice(0, 3).map((icon, idx) => (
+                <div key={idx} className={styles.iconItem}>
+                  <Icons iconsList={[icon]} />
+                </div>
+              ))}
+              <div className={`${styles.iconItem} ${styles.last}`}>
+                <Icons iconsList={[allIcons[3]]} />
+              </div>
             </div>
-            <div label='Development Technology'>
-              <Icons iconsList={development} />
-            </div>
-            <div label='Monetization Platform'>
-              <Icons iconsList={monetization} />
-            </div>
-            <div label='User Acquisition Platform'>
-              <Icons iconsList={acuisition} />
-            </div>
-          </Tabs>
+          ) : (
+            <Tabs>
+              <div label='Publishing Platform'>
+                <Icons iconsList={publishing} />
+              </div>
+              <div label='Development Technology'>
+                <Icons iconsList={development} />
+              </div>
+              <div label='Monetization Platform'>
+                <Icons iconsList={monetization} />
+              </div>
+              <div label='User Acquisition Platform'>
+                <Icons iconsList={acuisition} />
+              </div>
+            </Tabs>
+          )}
         </div>
       </Container>
     </>

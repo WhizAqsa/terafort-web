@@ -1,8 +1,9 @@
-import styles from './HomepageAbout.module.scss'
-import Link from "next/link"
-import MissionValuesGallery from '../../../components/MissionValuesGallery'
-import CircularGallery from '../../../components/CircularGallery/CircularGallery'
-import { Particles } from '../../../components/ui/particles'
+import { useState, useEffect } from 'react';
+import styles from './HomepageAbout.module.scss';
+import Link from "next/link";
+import MissionValuesGallery from '../../../components/MissionValuesGallery';
+import CircularGallery from '../../../components/CircularGallery/CircularGallery';
+import { Particles } from '../../../components/ui/particles';
 
 export default function HomepageAbout() {
     const services = [
@@ -62,17 +63,41 @@ export default function HomepageAbout() {
         }
     ];
 
+    const [serviceIndex, setServiceIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 900);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const nextService = () => setServiceIndex((prev) => (prev + 1) % services.length);
+    const prevService = () => setServiceIndex((prev) => (prev - 1 + services.length) % services.length);
+
+    const renderServiceCard = (service) => (
+        <div className={styles.serviceCard} style={{ margin: '0 auto', maxWidth: 400 }}>
+            <div className={styles.serviceIcon}><i className={service.icon}></i></div>
+            <div className={styles.serviceCategory}>{service.category}</div>
+            <div className={styles.serviceTitle}>{service.title}</div>
+            <div className={styles.serviceDescription}>{service.description}</div>
+        </div>
+    );
+
     return (
         <section className={styles.aboutSection}>
-            {/* Particles Background */}
-            <Particles
-                color="#f2994a"
-                particleCount={100}
-                particleSize={2}
-                animate={true}
-                className="z-0 opacity-20"
-            />
-
+            <div className={styles.particlesBg}>
+                <Particles
+                    color="#f2994a"
+                    particleCount={100}
+                    particleSize={2}
+                    animate={true}
+                    className="z-0 opacity-20"
+                />
+            </div>
             <div className={styles.container}>
                 {/* Centered About Us Title and Description */}
                 <div className={styles.aboutHeader}>
@@ -85,7 +110,6 @@ export default function HomepageAbout() {
                         reliable, and scalable digital solutions
                     </p>
                 </div>
-
                 {/* Vision & Mission Section with Rolling Gallery */}
                 <div className={styles.visionMissionSection}>
                     <Particles
@@ -97,8 +121,6 @@ export default function HomepageAbout() {
                     />
                     <MissionValuesGallery />
                 </div>
-
-
                 {/* Core Services Section */}
                 <div className={styles.servicesSection}>
                     <Particles
@@ -114,13 +136,33 @@ export default function HomepageAbout() {
                             Bridging the gap between innovative software solutions and skilled professionals
                         </p>
                     </div>
-
-                    <div style={{ height: '600px', position: 'relative' }}>
-                        <CircularGallery items={services} bend={3} scrollEase={0.08} />
-                    </div>
-
+                    {isMobile ? (
+                        <div className={styles.mobileServiceCarousel}>
+                            {renderServiceCard(services[serviceIndex])}
+                            <div className={styles.carouselArrows}>
+                                <button
+                                    onClick={prevService}
+                                    aria-label="Previous Service"
+                                    className={styles.arrowButton}
+                                >
+                                    <span className={styles.arrowIcon} aria-hidden="true">&#8592;</span>
+                                </button>
+                                <span className={styles.carouselIndicator}>{serviceIndex + 1} / {services.length}</span>
+                                <button
+                                    onClick={nextService}
+                                    aria-label="Next Service"
+                                    className={styles.arrowButton}
+                                >
+                                    <span className={styles.arrowIcon} aria-hidden="true">&#8594;</span>
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div style={{ height: '600px', position: 'relative' }}>
+                            <CircularGallery items={services} bend={3} scrollEase={0.08} />
+                        </div>
+                    )}
                 </div>
-
                 <div className={styles.servicesActions}>
                     <Link href="/whatwedo" className={styles.primaryButton}>
                         View All Services
@@ -130,6 +172,6 @@ export default function HomepageAbout() {
                     </Link>
                 </div>
             </div>
-        </section >
-    )
+        </section>
+    );
 }
