@@ -1,10 +1,9 @@
 //importing components
 import Head from 'next/head'
 import { Hero } from '../pagesComponents/(home)/Hero/Hero'
-import HomepageAbout from '../pagesComponents/(home)/HomepageAbout/HomepageAbout.jsx'
-
 import { Technologies } from '../pagesComponents/(home)/Technologies'
-import HomepageContact from '@/pagesComponents/(home)/HomepageContact'
+import { TerafortNumbers } from '@/components/TerafortNumbers'
+import { Awards } from '@/pagesComponents/(home)/Awards'
 
 // import { Head } from 'next/document'
 
@@ -17,10 +16,11 @@ export default function Home() {
       </Head>
       <section>
         <Hero />
-        <HomepageAbout />
+        {/* <HomepageAbout /> */}
         <Technologies />
+        <Awards />
+        <TerafortNumbers />
 
-        <HomepageContact />
       </section>
     </>
   )

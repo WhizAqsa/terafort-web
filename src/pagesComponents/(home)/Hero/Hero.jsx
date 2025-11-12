@@ -1,117 +1,136 @@
-"use client";
+'use client'
+import styles from './Hero.module.scss'
+import { useEffect, useState } from 'react'
+import slider from './Slider.module.css'
+import { heroImages } from './helper'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 
-import styles from './Hero.module.scss';
-import Link from "next/link";
-import Image from "next/image";
-import { AnimatedCounter } from '@/components/ui/animated-counter';
-import Beams from '@/components/ui/Beams';
+export const Hero = () => {
+  const [slideIndex, setSlideIndex] = useState(0)
+  const [prevIndex, setPrevIndex] = useState(0)
+  const [play, setPlay] = useState(true)
+  const imagesLength = heroImages.length - 1
+  const nextSlide = () => {
+    if (imagesLength > slideIndex) {
+      setPrevIndex(slideIndex)
+      setSlideIndex(slideIndex + 1)
+    } else {
+      setPrevIndex(slideIndex)
+      setSlideIndex(0)
+    }
+  }
 
-export function Hero() {
+  const prevSlide = () => {
+    if (slideIndex <= imagesLength && slideIndex !== 0) {
+      setPrevIndex(slideIndex)
+      setSlideIndex(slideIndex - 1)
+    }
+  }
+  const handlePlay = () => {
+    setPlay(!play)
+  }
+
+  useEffect(() => {
+    const autoSlider = setInterval(() => {
+      if (play) {
+        if (imagesLength > slideIndex) {
+          setPrevIndex(slideIndex)
+          setSlideIndex(slideIndex + 1)
+        } else {
+          setPrevIndex(slideIndex)
+          setSlideIndex(0)
+        }
+      }
+    }, 5000)
+    return () => clearInterval(autoSlider)
+  }, [slideIndex, play, imagesLength])
 
   return (
-    <section className={styles.heroSection}>
-      {/* Beams Background */}
-      <div className={styles.beamsBackground}>
-        <Beams
-          beamWidth={2}
-          beamHeight={15}
-          beamNumber={16}
-          lightColor="#f7b733"
-          speed={2.5}
-          noiseIntensity={1.2}
-          scale={0.15}
-          rotation={0}
-        />
-      </div>
+    <div className={slider.containerSlider}>
+      {heroImages.map((obj, index) => (
+        <div
+          key={obj.id}
+          className={slideIndex === index ? slider.activeAnim : slider.slide}
+          style={{
+            position: 'absolute',
+            backgroundImage: `url(${slideIndex === index
+              ? heroImages[slideIndex].coverImage.src
+              : heroImages[prevIndex].coverImage.src
+              })`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          <div className={styles.innerLayer}></div>
+        </div>
+      ))}
+      <div className={styles.innerContainer}>
+        <motion.div
+          className={styles.textDiv}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <h1>{heroImages[slideIndex].heading}</h1>
+          <p>{heroImages[slideIndex].text}</p>
+          <Link
+            href={heroImages[slideIndex].buttonLink}
+            className={styles.linkButton}
+          >
+            {heroImages[slideIndex].buttonText}
+          </Link>
+        </motion.div>
 
-      {/* Main Hero Content */}
-      <div className={styles.innerLayer}>
-        <div className={styles.innerContainer}>
-          <div className={styles.heroContent}>
-            <div className={styles.textSection}>
-              <div className={styles.headingSection}>
-                <h1 className={styles.mainHeading}>Transforming Ideas into Global Solutions</h1>
-                <p className={styles.subHeading}>
-                  From our humble beginnings as a mobile game studio to becoming a global leader in software exports and professional training, Terafort has been pioneering technological innovation for over 11 years.
-                </p>
-              </div>
-
-              <div className={styles.buttonSection}>
-                <Link href="/contact" className={styles.primaryButton}>
-                  Request a Quote →
-                </Link>
-                <Link href="/whatwedo" className={styles.secondaryButton}>
-                  Explore Services
-                </Link>
-              </div>
-
-              <div className={styles.statsSection}>
-                <div className={styles.statItem}>
-                  <div className={styles.statIcon}>
-                    <i className="fa-solid fa-code"></i>
-                  </div>
-                  <div className={styles.statContent}>
-                    <div className={styles.statNumber}>
-                      <AnimatedCounter
-                        end={100}
-                        suffix="+"
-                        duration={2}
-                        className={styles.statNumber}
-                      />
-                    </div>
-                    <div className={styles.statLabel}>Projects Delivered</div>
-                  </div>
-                </div>
-                <div className={styles.statItem}>
-                  <div className={styles.statIcon}>
-                    <i className="fa-solid fa-users"></i>
-                  </div>
-                  <div className={styles.statContent}>
-                    <div className={styles.statNumber}>
-                      <AnimatedCounter
-                        end={100}
-                        suffix="+"
-                        duration={2.5}
-                        className={styles.statNumber}
-                      />
-                    </div>
-                    <div className={styles.statLabel}>Million Daily Active Users</div>
-                  </div>
-                </div>
-                <div className={styles.statItem}>
-                  <div className={styles.statIcon}>
-                    <i className="fa-solid fa-globe"></i>
-                  </div>
-                  <div className={styles.statContent}>
-                    <div className={styles.statNumber}>
-                      <AnimatedCounter
-                        end={5}
-                        suffix="+"
-                        duration={1.5}
-                        className={styles.statNumber}
-                      />
-                    </div>
-                    <div className={styles.statLabel}>Billion Downloads Globally</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.imageSection}>
-              <div className={styles.heroImageWrapper}>
-                <Image
-                  src="/resources/images/hero/hero1.webp"
-                  alt="Terafort team working on software development"
-                  className={styles.heroImage}
-                  width={600}
-                  height={400}
-                  priority
-                />
-              </div>
-            </div>
+        <div className={styles.controller}>
+          <p>
+            <span style={{ fontSize: '1.2rem' }}>{slideIndex + 1}</span>/
+            <span>{heroImages.length}</span>
+          </p>
+          <div className={styles.heroImagesLength}>
+            {heroImages.map((i, index) => (
+              <div
+                key={index}
+                className={
+                  slideIndex == index
+                    ? styles.imageActiveIndex
+                    : styles.imageIndex
+                }
+                style={{
+                  width: 100 / heroImages.length + '%',
+                  cursor: 'pointer',
+                }}
+              ></div>
+            ))}
+          </div>
+          <div className={styles.controllerButtons}>
+            <button onClick={prevSlide}>
+              <i
+                className='fa-sharp fa-solid fa-chevron-left'
+                style={{ fontSize: 14 }}
+              ></i>
+              {'Prev'}
+            </button>
+            <button onClick={handlePlay}>
+              {play ? (
+                <i className='fa-solid fa-pause'></i>
+              ) : (
+                <i className='fa-solid fa-play'></i>
+              )}
+            </button>
+            <button onClick={nextSlide}>
+              <span>Next</span>
+              <i
+                className='fa-solid fa-chevron-right'
+                style={{ fontSize: 14 }}
+              ></i>
+            </button>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  )
 }
