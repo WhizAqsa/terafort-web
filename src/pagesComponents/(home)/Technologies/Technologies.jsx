@@ -7,8 +7,6 @@ import { publishing } from './helper'
 import { development } from './helper'
 import { monetization } from './helper'
 import { acuisition } from './helper'
-import { motion } from 'framer-motion'
-import { Particles } from '../../../components/ui/particles'
 import { useEffect, useState } from 'react'
 
 export const Technologies = () => {
@@ -32,13 +30,6 @@ export const Technologies = () => {
   return (
     <>
       <div className={styles.particlesBg}>
-        <Particles
-          color="#f2994a"
-          particleCount={80}
-          particleSize={1.5}
-          animate={true}
-          className="z-0 opacity-20"
-        />
       </div>
       <Container
         containerCls={styles.containerClass}

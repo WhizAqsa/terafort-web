@@ -1,17 +1,9 @@
 import Image from 'next/image'
 import styles from './CompanyStory.module.scss'
-import { Particles } from '@/components/ui/particles'
 
 export default function CompanyStory() {
     return (
         <section className={styles.companyStorySection}>
-            <Particles
-                color="#f2994a"
-                particleCount={100}
-                particleSize={2}
-                animate={true}
-                className="z-0 opacity-20"
-            />
             <div className={styles.container}>
                 <div className={styles.storyGrid}>
                     <div className={styles.storyContent}>
@@ -47,13 +39,6 @@ export default function CompanyStory() {
                     </div>
                 </div>
             </div>
-            <Particles
-                color="#f2994a"
-                particleCount={100}
-                particleSize={2}
-                animate={true}
-                className="z-0 opacity-20"
-            />
         </section>
     )
 }

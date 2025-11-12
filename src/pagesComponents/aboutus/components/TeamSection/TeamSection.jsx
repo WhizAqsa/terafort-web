@@ -1,5 +1,4 @@
 import styles from './TeamSection.module.scss'
-import { Particles } from '@/components/ui/particles'
 
 export default function TeamSection() {
     const teamMembers = [
@@ -45,13 +44,7 @@ export default function TeamSection() {
                         education, and business leadership to drive innovation and excellence.
                     </p>
                 </div>
-                <Particles
-                    color="#f2994a"
-                    particleCount={100}
-                    particleSize={2}
-                    animate={true}
-                    className="z-0 opacity-20"
-                />
+
                 <div className={styles.teamGrid}>
                     {teamMembers.map((member, index) => (
                         <div
@@ -70,13 +63,7 @@ export default function TeamSection() {
                         </div>
                     ))}
                 </div>
-                <Particles
-                    color="#f2994a"
-                    particleCount={100}
-                    particleSize={2}
-                    animate={true}
-                    className="z-0 opacity-20"
-                />
+
             </div>
         </section>
     )

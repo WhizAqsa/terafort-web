@@ -3,7 +3,6 @@ import styles from './HomepageAbout.module.scss';
 import Link from "next/link";
 import MissionValuesGallery from '../../../components/MissionValuesGallery';
 import CircularGallery from '../../../components/CircularGallery/CircularGallery';
-import { Particles } from '../../../components/ui/particles';
 
 export default function HomepageAbout() {
     const services = [
@@ -90,13 +89,7 @@ export default function HomepageAbout() {
     return (
         <section className={styles.aboutSection}>
             <div className={styles.particlesBg}>
-                <Particles
-                    color="#f2994a"
-                    particleCount={100}
-                    particleSize={2}
-                    animate={true}
-                    className="z-0 opacity-20"
-                />
+
             </div>
             <div className={styles.container}>
                 {/* Centered About Us Title and Description */}
@@ -112,24 +105,12 @@ export default function HomepageAbout() {
                 </div>
                 {/* Vision & Mission Section with Rolling Gallery */}
                 <div className={styles.visionMissionSection}>
-                    <Particles
-                        color="#f2994a"
-                        particleCount={80}
-                        particleSize={1.5}
-                        animate={true}
-                        className="z-0 opacity-15"
-                    />
+
                     <MissionValuesGallery />
                 </div>
                 {/* Core Services Section */}
                 <div className={styles.servicesSection}>
-                    <Particles
-                        color="#f2994a"
-                        particleCount={90}
-                        particleSize={2}
-                        animate={true}
-                        className="z-0 opacity-25"
-                    />
+
                     <div className={styles.servicesHeader}>
                         <h3 className={styles.servicesTitle}>Our Core Services</h3>
                         <p className={styles.servicesDescription}>

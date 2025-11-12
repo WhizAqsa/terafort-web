@@ -1,6 +1,5 @@
 import styles from './ServicesHero.module.scss'
 import Link from 'next/link'
-import { Particles } from '@/components/ui/particles'
 
 export default function ServicesHero() {
     const services = [
@@ -14,13 +13,6 @@ export default function ServicesHero() {
 
     return (
         <section className={styles.heroSection}>
-            <Particles
-                color="#f2994a"
-                particleCount={100}
-                particleSize={2}
-                animate={true}
-                className="z-0 opacity-20"
-            />
             <div className={styles.container}>
                 <div className={styles.heroContent}>
                     <h1 className={styles.heroTitle}>
