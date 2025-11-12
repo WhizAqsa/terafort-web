@@ -1,9 +1,12 @@
 import Head from 'next/head'
-import { TerafortNumbers } from '../components/TerafortNumbers'
-import { Awards } from '../pagesComponents/(home)/Awards'
+import { aboutus } from './../pagesComponents/aboutus/helper'
+import HeroLayout from '../components/HeroLayout/HeroLayout'
 import AboutHero from '../pagesComponents/aboutus/components/AboutHero'
-import CompanyStory from '../pagesComponents/aboutus/components/CompanyStory'
 import TeamSection from '../pagesComponents/aboutus/components/TeamSection'
+import { GreenPlanet } from '@/pagesComponents/aboutus/components/GreenPlanet'
+import { Mission } from '../pagesComponents/aboutus/components/Mission'
+import { Values } from '../pagesComponents/aboutus/components/Values'
+import { Vision } from '../pagesComponents/aboutus/components/Vision'
 
 //about us page
 export default function AboutUs() {
@@ -12,12 +15,19 @@ export default function AboutUs() {
       <Head>
         <title>Terafort | About</title>
       </Head>
-
+      <HeroLayout
+        text={aboutus.heroLayout.text}
+        linkText={aboutus.heroLayout.linkText}
+        linkRef={aboutus.heroLayout.linkRef}
+        heading={aboutus.heroLayout.heading}
+      />
       <main>
         <AboutHero />
-        <CompanyStory />
+        <Mission />
+        <Values />
+        <Vision />
         <TeamSection />
-        <Awards />
+        <GreenPlanet />
       </main>
     </>
   )

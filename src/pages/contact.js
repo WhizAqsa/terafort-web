@@ -116,8 +116,8 @@ export default function Contact() {
                 >
                   <h2>AUSTIN</h2>
                   <p>
-                    Terafort Limited, 701 Brazos Street,Ste. 720, Austin, Texas,
-                    78701
+                    B5900 Balcones Dr, Ste 100, Austin Texas 78731
+                    USA
                   </p>
                   {/* <a
                     href="https://www.google.com/maps/place/Terafort+Limited/@33.664372,73.050271,17z/data=!3m1!4b1!4m5!3m4!1s0x38df953ec17583b9:0x140b61ae7f3e9f7c!8m2!3d33.6643676!4d73.0524597"
