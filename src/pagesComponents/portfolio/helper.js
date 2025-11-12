@@ -10,10 +10,10 @@ import appImage7 from './resources/app7.png'
 import platform from './resources/platform1.webp'
 import platform1 from './resources/platform2.webp'
 // import platform2 from './resources/platform3.webp'
-export const profileHero = {
+export const portfolio = {
   heroLayout: {
     heading: 'PORTFOLIO',
-    text: ``,
+    text: `Explore our collection of projects that showcase creativity, innovation, and technical expertise — each crafted to deliver impactful digital experiences.`,
     linkText: 'Want to Collaborate?',
     linkRef: '/contact',
   },

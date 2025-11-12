@@ -1,19 +1,12 @@
 import React from 'react';
 import { Code, Users, TrendingUp, Award } from 'lucide-react';
 import styles from '../profile.module.scss';
-import { Particles } from '@/components/ui/particles'
 
 // industry component
 export const Portfolio = () => {
   return (
     <section className={styles.portfolioSection}>
-      <Particles
-        color="#f2994a"
-        particleCount={100}
-        particleSize={2}
-        animate={true}
-        className="z-0 opacity-20"
-      />
+
       <div className={styles.container}>
         <div className={styles.textCenter}>
           <h1 className={styles.mainHeading}>
