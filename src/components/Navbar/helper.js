@@ -26,7 +26,7 @@ export const navLinks = [
   // },
   {
     id: 5,
-    linkName: "Portfolio",
+    linkName: "Games & Apps",
     LinkRoute: "/portfolio",
   },
   {
