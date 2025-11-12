@@ -77,7 +77,7 @@ export default function ServiceCategories() {
         <section className={styles.categoriesSection}>
             <div className={styles.container}>
                 <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>Our Service Portfolio</h2>
+                    <h2 className={styles.sectionTitle}>Our Services</h2>
                     <p className={styles.sectionDescription}>
                         Comprehensive software solutions designed to accelerate your business growth
                     </p>
