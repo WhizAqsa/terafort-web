@@ -3,14 +3,14 @@ import styles from './IndustriesServed.module.scss';
 
 export default function IndustriesServed() {
     const industries = [
-        { icon: "fa-solid fa-heart-pulse", title: "Healthcare", description: "HIPAA-compliant solutions for hospitals, clinics, and medical practices", projects: "50+ projects" },
-        { icon: "fa-solid fa-graduation-cap", title: "Education", description: "Learning management systems and educational technology platforms", projects: "35+ projects" },
-        { icon: "fa-solid fa-cart-shopping", title: "E-commerce", description: "Scalable online stores and marketplace solutions", projects: "80+ projects" },
-        { icon: "fa-solid fa-coins", title: "Fintech", description: "Secure financial applications and payment processing systems", projects: "40+ projects" },
-        { icon: "fa-solid fa-truck", title: "Logistics", description: "Supply chain management and tracking solutions", projects: "25+ projects" },
-        { icon: "fa-solid fa-industry", title: "Manufacturing", description: "Industrial automation and inventory management systems", projects: "30+ projects" },
-        { icon: "fa-solid fa-building", title: "Real Estate", description: "Property management and real estate marketplace platforms", projects: "20+ projects" },
-        { icon: "fa-solid fa-gamepad", title: "Gaming", description: "Mobile games and gaming platform development", projects: "60+ projects" },
+        { icon: "fa-solid fa-heart-pulse", title: "Healthcare", description: "HIPAA-compliant solutions for hospitals, clinics, and medical practices" },
+        { icon: "fa-solid fa-graduation-cap", title: "Education", description: "Learning management systems and educational technology platforms" },
+        { icon: "fa-solid fa-cart-shopping", title: "E-commerce", description: "Scalable online stores and marketplace solutions" },
+        { icon: "fa-solid fa-coins", title: "Fintech", description: "Secure financial applications and payment processing systems" },
+        { icon: "fa-solid fa-truck", title: "Logistics", description: "Supply chain management and tracking solutions" },
+        { icon: "fa-solid fa-industry", title: "Manufacturing", description: "Industrial automation and inventory management systems" },
+        { icon: "fa-solid fa-building", title: "Real Estate", description: "Property management and real estate marketplace platforms" },
+        { icon: "fa-solid fa-gamepad", title: "Gaming", description: "Mobile games and gaming platform development" },
     ];
 
     const [index, setIndex] = useState(0);
