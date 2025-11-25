@@ -4,6 +4,7 @@ import { Hero } from '../pagesComponents/(home)/Hero/Hero'
 import { Technologies } from '../pagesComponents/(home)/Technologies'
 import { TerafortNumbers } from '@/components/TerafortNumbers'
 import { Awards } from '@/pagesComponents/(home)/Awards'
+import HomepageAbout from '../pagesComponents/(home)/HomepageAbout/HomepageAbout'
 
 // import { Head } from 'next/document'
 
@@ -16,7 +17,7 @@ export default function Home() {
       </Head>
       <section>
         <Hero />
-        {/* <HomepageAbout /> */}
+        <HomepageAbout />
         <Technologies />
         <Awards />
         <TerafortNumbers />
