@@ -1,5 +1,6 @@
 import styles from './ServiceCategories.module.scss'
 import Link from 'next/link'
+import { FiStar } from 'react-icons/fi'
 
 export default function ServiceCategories() {
     const categories = [
@@ -15,7 +16,7 @@ export default function ServiceCategories() {
                 "Microservices Architecture",
             ],
             technologies: ["Java", "Python", ".NET", "Node.js", "React", "Angular"],
-            startingPrice: "$15,000",
+
         },
         {
             icon: "fa-solid fa-robot",
@@ -24,7 +25,6 @@ export default function ServiceCategories() {
             description: "Machine learning models, generative AI solutions, and comprehensive data analytics services",
             features: ["Machine Learning Models", "Generative AI Solutions", "Real-time Analytics", "Data Migration"],
             technologies: ["Python", "TensorFlow", "PyTorch", "OpenAI", "Power BI", "Tableau"],
-            startingPrice: "$20,000",
         },
         {
             icon: "fa-solid fa-cube",
@@ -33,7 +33,6 @@ export default function ServiceCategories() {
             description: "Cutting-edge solutions in virtual reality, augmented reality, Internet of Things, blockchain, and Web 3.0 technologies",
             features: ["Virtual Reality Apps", "Augmented Reality Solutions", "IoT Development", "Blockchain Development"],
             technologies: ["Unity", "Unreal Engine", "Solidity", "Web3.js", "Arduino", "Raspberry Pi"],
-            startingPrice: "$25,000",
         },
         {
             icon: "fa-solid fa-shield-halved",
@@ -42,7 +41,6 @@ export default function ServiceCategories() {
             description: "Comprehensive cybersecurity solutions and intelligent process automation for enhanced security and efficiency",
             features: ["Security Audits", "Penetration Testing", "Process Automation", "Security Training"],
             technologies: ["OWASP", "ISO 27001", "GDPR", "SOC 2", "NIST"],
-            startingPrice: "$18,000",
         },
         {
             icon: "fa-solid fa-users",
@@ -51,7 +49,6 @@ export default function ServiceCategories() {
             description: "Access to skilled developers, designers, and technical experts to augment your existing team capabilities",
             features: ["Frontend Developers", "Backend Developers", "DevOps Engineers", "UI/UX Designers"],
             technologies: ["React", "Node.js", "Python", "AWS", "Docker", "Figma"],
-            startingPrice: "$3,000/month",
         },
         {
             icon: "fa-solid fa-check-circle",
@@ -60,7 +57,6 @@ export default function ServiceCategories() {
             description: "Comprehensive testing services, quality assurance protocols, and regulatory compliance solutions",
             features: ["Automated Testing", "Manual Testing", "Performance Testing", "Compliance Audits"],
             technologies: ["Selenium", "Jest", "Cypress", "JMeter", "TestRail"],
-            startingPrice: "$12,000",
         },
         {
             icon: "fa-solid fa-shopping-cart",
@@ -69,7 +65,6 @@ export default function ServiceCategories() {
             description: "Complete e-commerce solutions including platform development, management, and optimization services",
             features: ["E-commerce Development", "Payment Integration", "Inventory Management", "Performance Optimization"],
             technologies: ["Shopify", "WooCommerce", "Magento", "Stripe", "PayPal"],
-            startingPrice: "$10,000",
         },
     ]
 
@@ -94,7 +89,6 @@ export default function ServiceCategories() {
                                     <div className={styles.categoryDetails}>
                                         <h3 className={styles.categoryTitle}>{category.title}</h3>
                                         <div className={styles.categorySubtitle}>{category.subtitle}</div>
-                                        <div className={styles.categoryPrice}>From {category.startingPrice}</div>
                                     </div>
                                 </div>
                             </div>
@@ -129,8 +123,9 @@ export default function ServiceCategories() {
                                     <Link href="/contact" className={styles.primaryButton}>
                                         Get Quote
                                     </Link>
-                                    <Link href="/whatwedo" className={styles.secondaryButton}>
-                                        Learn More
+                                    <Link href={`/success-stories?category=${encodeURIComponent(category.title.toLowerCase().replace(/\s+/g, '-'))}&service=${encodeURIComponent(category.title)}`} className={styles.secondaryButton}>
+                                        <FiStar />
+                                        Watch Success Stories
                                     </Link>
                                 </div>
                             </div>

@@ -93,7 +93,7 @@ export default function HomepageAbout() {
             </div>
             <div className={styles.container}>
                 {/* Centered About Us Title and Description */}
-                <div className={styles.aboutHeader}>
+                {/* <div className={styles.aboutHeader}>
                     <h2 className={styles.aboutTitle}>About Us</h2>
                     <p className={styles.aboutDescription}>
                         Terafort is a trusted technology partner with proven
@@ -102,12 +102,12 @@ export default function HomepageAbout() {
                         We empower businesses worldwide with innovative,
                         reliable, and scalable digital solutions
                     </p>
-                </div>
+                </div> */}
                 {/* Vision & Mission Section with Rolling Gallery */}
-                <div className={styles.visionMissionSection}>
+                {/* <div className={styles.visionMissionSection}>
 
                     <MissionValuesGallery />
-                </div>
+                </div> */}
                 {/* Core Services Section */}
                 <div className={styles.servicesSection}>
 
